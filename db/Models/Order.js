@@ -4,33 +4,37 @@ const {Schema,model} = mongoose
 const OrderSchema = new Schema({
     userId:{
         type:String,
-        unique:true
+        required:true,
+        unique:false
     },
     products:[
         {
             productId:{
                 type:String,
-                unique:true
+                unique:false
+            },
+            title:{
+                type:String
+            },
+            image:{
+                type:String
+            },
+            price:{
+                type:Number
             },
             quantity:{
                 type:Number,
                 default:1
-            }
+            },
+            _id:false
         }
     ],
     amount:{
         type:Number,
+        unique:false,
         required:true
-    },
-    address:{
-        type:Object,
-        required:true
-    },
-    status:{
-        type:String,
-        default:"Pending"
     }
-})
+},{timestamps:true})
 
 const Order = model("Order",OrderSchema)
 

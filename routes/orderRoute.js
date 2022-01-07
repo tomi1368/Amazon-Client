@@ -1,10 +1,10 @@
 const orderRouter = require("express").Router()
 const {protect} = require("../middlewares/auth")
-const {createOrder, editOrder, getOrder} = require("../controllers/orderController")
+const {createOrder, getOrder, getAllOrders} = require("../controllers/orderController")
 
 orderRouter.post("/",protect,createOrder)
 
-orderRouter.put("/",protect,editOrder)
+orderRouter.get("/:id",protect,getAllOrders)
 
 orderRouter.get("/find/:id",protect,getOrder)
 

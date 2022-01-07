@@ -31,7 +31,7 @@ app.use("/api/auth",authRouter)
 app.use("/api/product",productRouter)
 app.use("/api/order",orderRouter)
 app.use("/api/checkout",mercadoRouter)
-
+app.use("/api/orders",orderRouter)
 
 const server = app.listen(PORT,(req,res)=>{
     console.log(`Server up on Port ${PORT}`)

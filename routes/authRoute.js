@@ -5,7 +5,7 @@ const {registerUser,loginUser} = require("../controllers/authController")
 authRoute.post("/register",registerUser)
 
 
-authRoute.get("/login",loginUser)
+authRoute.post("/login",loginUser)
 
 
 module.exports = authRoute

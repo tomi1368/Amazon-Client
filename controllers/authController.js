@@ -35,7 +35,8 @@ const sendToken = (user,statusCode,res)=>{
         token,
         user:{
             username:user.username,
-            email:user.email
+            email:user.email,
+            _id:user._id
         }
     })
 }

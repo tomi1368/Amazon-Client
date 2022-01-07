@@ -24,6 +24,14 @@ const UserSchema = new Schema({
         "Please provide a valid email"
       ]
   },
+  cart:{
+    type:Array,
+    default:[]
+  },
+  orders:{
+    type:Array,
+    default:[]
+  }
 },{timestamps:true,versionKey:false});
 
 UserSchema.pre("save", async function(next){
