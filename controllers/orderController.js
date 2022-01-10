@@ -35,6 +35,7 @@ exports.getOrder = async (req,res)=>{
     try{
         //Hay varias ordenes para un usuario
         const orders = await Order.find({userId:req.params.id})
+        console.log(orders)
         res.status(200).json({error:false,data:orders})
     }catch(error){
         res.status(404).json({error:true,message:error.message})
@@ -44,7 +45,7 @@ exports.getOrder = async (req,res)=>{
 exports.getAllOrders = async (req,res)=>{
     let id = req.params.id
     try{
-        const orders = await Order.find({userId:id})
+        const orders = await Order.find({userId:id}).sort({createdAt:"desc"}).limit(5)
         if (!orders) res.status(404).json([])
         res.status(200).json(orders)
     }catch(err){

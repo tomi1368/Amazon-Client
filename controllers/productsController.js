@@ -44,7 +44,7 @@ exports.getProductsSearch = async (req,res)=>{
 exports.getProducts = async (req,res)=>{
     try {
         let products = await Product.find({}).sort({createdAt : "desc"}).exec()
-        res.status(200).json({error:false,data:products})
+        res.status(200).json(products)
     } catch (error) {
         res.status(404).json({error:true,message:error.message})
     }
