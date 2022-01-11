@@ -34,7 +34,7 @@ exports.getProductsSearch = async (req,res)=>{
             "title" : new RegExp(search,"i")
         }).sort({createAt : "desc"}).exec()
         console.log(products)
-        res.status(200).json({error:false,data:products})
+        res.status(200).json(products)
     } catch (error) {
         res.status(404).json({error:true,message:error.message})
     }
