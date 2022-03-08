@@ -12,9 +12,8 @@ const PORT = process.env.PORT || 6005
 //Routers
 
 const authRouter = require("./routes/authRoute")
-
+const testingRouter = require("./routes/testing")
 const productRouter = require("./routes/productRoute")
-
 const orderRouter = require("./routes/orderRoute")
 const mercadoRouter = require('./routes/mercadoRoutes')
 
@@ -26,7 +25,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors())
 
 
-
+app.use("/api/",testingRouter)
 app.use("/api/auth",authRouter)
 app.use("/api/product",productRouter)
 app.use("/api/order",orderRouter)
