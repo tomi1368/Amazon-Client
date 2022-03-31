@@ -33,8 +33,9 @@ app.get("/health",(req,res)=>{ //Me sirve para no deployear algo que no funciona
 app.get("/version",(req,res)=>{ //muestro que version estoy deployeando
     res.send(version)
 })
-
-app.use("/api/",testingRouter)
+if(process.env.NODE_ENV == "test"){
+    app.use("/api/",testingRouter)
+}
 app.use("/api/auth",authRouter)
 app.use("/api/product",productRouter)
 app.use("/api/order",orderRouter)
