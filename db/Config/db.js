@@ -7,7 +7,7 @@ const connectDB = async ()=>{
         useUnifiedTopology:true,
     })
     .then(res=> console.log("Connect to Mongo"))
-    .catch(err=>console.log("Not connection to Mongo"))
+    .catch(err=>console.log(err))
     
 }
 

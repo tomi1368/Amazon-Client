@@ -11,8 +11,6 @@ exports.makePayment = async (req, res) => {
   req.body.forEach((elem) => {
     ids.push(elem._id);
   });
-  console.log(req.body)
-  console.log(ids)
   let preference = {
     items: [],
     back_urls: {

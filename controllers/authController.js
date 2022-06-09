@@ -3,7 +3,6 @@ const User = require("../db/Models/User")
 
 exports.registerUser = async (req,res)=>{
     let userBody = req.body
-    console.log(userBody)
     try{
         const user = new User(userBody)
         let userCreated = await user.save()
@@ -17,7 +16,6 @@ exports.loginUser = async (req,res)=>{
     let {password,email} = req.body
     try{
         const userFind = await User.findOne({email}).select("+password")
-        console.log(userFind)
         if (!userFind) return res.status(404).json({error:true,message:"User didn´t find"})
         const isMatch = await userFind.matchPasswords(password)
         if(!isMatch) return res.status(404).json({error:true,message:"La contraseña no coincide"})

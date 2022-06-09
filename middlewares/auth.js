@@ -9,7 +9,6 @@ exports.protect = async (req,res,next)=>{
         token= auth.split(" ")[1]
     }
     if(!token || token==""){
-        console.log(token)
         return res.status(401).json({error:true,message:"Not authorized to access this route"})
     }
     try{
@@ -19,7 +18,6 @@ exports.protect = async (req,res,next)=>{
         req.user = user
         next()
     }catch(error){
-        console.log(error)
         res.status(401).json({error:true,message:error.message})
     }
 }
